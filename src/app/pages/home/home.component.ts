@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import{tarjetaDeCredito} from './../../models/task.model';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -26,10 +26,10 @@ export class HomeComponent {
   form: FormGroup;
   constructor(private fb: FormBuilder){
     this.form = this.fb.group({
-      titular: [''],
-      numeroTarjeta: [''],
-      fechaExpiracion: [''],
-      cvv: ['']
+      titular: ['', Validators.required],
+      numeroTarjeta: ['', [Validators.required, Validators.maxLength(16), Validators.minLength(6)]],
+      fechaExpiracion: ['', [Validators.required, Validators.maxLength(5), Validators.minLength(5)]],
+      cvv: ['', [Validators.required, Validators.maxLength(5), Validators.minLength(5)]]
     })
   }
 
@@ -43,6 +43,7 @@ export class HomeComponent {
       fechaExpiracion: this.form.get('fechaExpiracion')?.value,
       cvv: this.form.get('cvv')?.value
     }
-    console.log(tarjeta);
+    this.listTarjeta.push(tarjeta);
+    this.form.reset();
   }
 }

@@ -31,7 +31,7 @@
                         </h5>
                         <form [formGroup]="form" (ngSubmit)="agregarTarjeta()">
                             <div class="input-group input-group-lg mb-3">
-                                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user"></i></span>
+                                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user"[class.green-icon]="this.form.get('titular')?.valid"></i></span>
                                 <input formControlName="titular" type="text" class="form-control" placeholder="Titular" aria-label="Username" aria-describedby="basic-addon1">
                               </div>
                               <div class="input-group input-group-lg mb-3">
