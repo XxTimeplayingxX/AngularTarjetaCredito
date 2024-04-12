@@ -1,0 +1,15 @@
+body{
+    color: white;
+}
+.potta-one-regular {
+    font-family: "Potta One", system-ui;
+    font-weight: 400;
+    font-style: normal;
+  }
+.titulo{
+    text-align: center;
+    font-family: "Potta One", system-ui;
+}
+.fa-solid{
+    cursor: pointer;
+}
